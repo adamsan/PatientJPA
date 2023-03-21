@@ -1,5 +1,6 @@
 package com.codecool.jpa.medicinejpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,5 +25,6 @@ public class Patient {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
+    @JsonIgnore // other solution: https://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion
     private Doctor doctor;
 }
