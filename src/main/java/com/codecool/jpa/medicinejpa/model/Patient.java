@@ -21,4 +21,8 @@ public class Patient {
     @JsonProperty("date_of_birth")
     @Column(name = "szuletett")
     private LocalDate dateOfBirth;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
 }
