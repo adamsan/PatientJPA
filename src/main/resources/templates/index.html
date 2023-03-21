@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor page</title>
+    <style>
+        .error {
+            border: 1px solid red;
+        }
+        .error:after {
+            content: " - *";
+        }
+    </style>
+</head>
+<body>
+Doctors:
+<ul>
+   <li th:each="doctor: ${doctors}" th:text="${doctor.name}">Doctor's Name</li>
+</ul>
+<form method="POST" th:object="${doctor}">
+    <label for="new_doctor_name">Name:</label>
+    <input id="new_doctor_name" name="name" th:field="*{name}" th:errorclass="error">
+    <p th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="*{name}" />
+    <br/>
+    <label for="new_doctor_type">Type:</label>
+    <input id="new_doctor_type" name="doctorType" th:field="*{doctorType}">
+    <br/>
+    <button type="submit">Save new doctor</button>
+</form>
+
+</body>
+</html>

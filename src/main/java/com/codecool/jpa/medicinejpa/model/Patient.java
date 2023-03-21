@@ -1,5 +1,6 @@
 package com.codecool.jpa.medicinejpa.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = {"doctor"})
 
 @Entity
 public class Patient {
@@ -21,4 +22,9 @@ public class Patient {
     @JsonProperty("date_of_birth")
     @Column(name = "szuletett")
     private LocalDate dateOfBirth;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    @JsonManagedReference
+    private Doctor doctor;
 }
