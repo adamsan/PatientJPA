@@ -1,4 +1,4 @@
-package com.codecool.jpa.medicinejpa;
+package com.codecool.jpa.medicinejpa.controller;
 
 import com.codecool.jpa.medicinejpa.model.Patient;
 import com.codecool.jpa.medicinejpa.repository.PatientDao;
@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class PatientController {

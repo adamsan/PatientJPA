@@ -3,6 +3,8 @@ package com.codecool.jpa.medicinejpa.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -15,4 +17,8 @@ public class Doctor {
     private Integer id;
 
     private String name;
+
+    @OneToMany
+    @JoinColumn(name = "doctor_id")
+    private List<Patient> patients;
 }
